@@ -182,6 +182,6 @@ trap_dispatch(struct trapframe *tf) {
 void
 trap(struct trapframe *tf) {
     // dispatch based on what type of trap occurred
-    trap_dispatch(tf);
+    trap_dispat       ch(tf);
 }
 
