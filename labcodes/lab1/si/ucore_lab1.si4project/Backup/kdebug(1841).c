@@ -288,46 +288,19 @@ read_eip(void) {
  * Note that, the length of ebp-chain is limited. In boot/bootasm.S, before jumping
  * to the kernel entry, the value of ebp has been set to zero, that's the boundary.
  * */
-
-
-
- /* *
-  * 栈相关的寄存器两个，ebp(基址寄存器)和esp(栈指针寄存器)，栈的增长方向是由高到低
-  * eip是程序指令指针，当前程序运行的指令
-  * 
-  * 举例，main函数在调用sum(int a, int b)的时候
-  * 高地址-—|--------------------------|--
-  * 		|		   参数b			   |
-  * 	  -—|--------------------------|--
-  * 		|		   参数a			   |
-  * 	  -—|--------------------------|--
-  * 		|  sum函数下一条命令的地址		   |		 
-  * 	  -—|--------------------------|--
-  * 		|	  main函数栈的基址		   |
-  * 低地址-—|--------------------------|-- 	ebp
-  *
-  * 此时ebp是sum函数栈的基址，然后eip里面是sum函数中的第一条指令
-  * sum函数执行完之后，sum函数栈的内容全部出栈，
-  * 然后ebp重新变成main函数的函数栈基址，ebp=*((uint_t*)ebp)
-  * eip=*((uint_t*)ebp+1)，就是sum函数之后的指令的地址，然后函数参数出栈
-  * */
- 
- void
- print_stackframe(void) {
-	  /* LAB1 YOUR CODE : STEP 1 */
-	  uint32_t ebp = read_ebp(); //(1) call read_ebp() to get the value of ebp. the type is (uint32_t);
-	  uint32_t eip = read_eip(); //(2) call read_eip() to get the value of eip. the type is (uint32_t);
-	  for(i = 0, i < STACKFRAME_DEPTH && epb != 0; i++)// (3) from 0 .. STACKFRAME_DEPTH
-	  {
-	 printf("ebp: 0x%x	eip: 0x%x",ebp,eip); //(3.1) printf value of ebp, eip
-		 uint32_t *parg = (uint32_t *)ebp+2;//(3.2) (uint32_t)calling arguments [0..4] = the contents in address (unit32_t)ebp +2 [0..4]
-		 cprintf("arg: 0x%x, 0x%x, 0x%x, 0x%x", *(parg),*(parg+1),*(parg+2),*(parg+3));
-		 cprintf("\n");//(3.3) cprintf("\n");
-		 print_debuginfo(eip-1);//(3.4) call print_debuginfo(eip-1) to print the C calling function name and line number, etc.
-		 eip = *((uint32_t *)ebp+1);//(3.5) popup a calling stackframe
-		 ebp = *((uint32_t *)ebp);
-		 //NOTICE: the calling funciton's return addr eip  = ss:[ebp+4]
-		 //the calling funciton's ebp = ss:[ebp]
-	  } 	 
- }
+void
+print_stackframe(void) {
+     /* LAB1 YOUR CODE : STEP 1 */
+     uint32_t ebp = read_ebp(); //(1) call read_ebp() to get the value of ebp. the type is (uint32_t);
+     uint32_t eip = read_eip(); //(2) call read_eip() to get the value of eip. the type is (uint32_t);
+     for(i = 0, i < STACKFRAME_DEPTH && epb != 0; i++)// (3) from 0 .. STACKFRAME_DEPTH
+     {	printf("ebp: 0x%x  eip: 0x%x",ebp,eip); //(3.1) printf value of ebp, eip
+      	//(3.2) (uint32_t)calling arguments [0..4] = the contents in address (unit32_t)ebp +2 [0..4]
+      *    (3.3) cprintf("\n");
+      *    (3.4) call print_debuginfo(eip-1) to print the C calling function name and line number, etc.
+      *    (3.5) popup a calling stackframe
+      *           NOTICE: the calling funciton's return addr eip  = ss:[ebp+4]
+      *                   the calling funciton's ebp = ss:[ebp]
+      */
+}
 
