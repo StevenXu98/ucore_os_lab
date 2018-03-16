@@ -1,1 +1,3 @@
----- read Matches (0 in 0 files) ----
+---- GD_KTEXT Matches (2 in 1 files) ----
+memlayout.h (C:\Users\Think\Desktop\ucore_os_lab\labcodes\lab1\kern\mm) line 14 : #define GD_KTEXT    ((SEG_KTEXT) << 3)        // kernel text
+memlayout.h (C:\Users\Think\Desktop\ucore_os_lab\labcodes\lab1\kern\mm) line 23 : #define KERNEL_CS    ((GD_KTEXT) | DPL_KERNEL)
