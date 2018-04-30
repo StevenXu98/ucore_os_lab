@@ -20,5 +20,9 @@ a.out
 chytesting
 disk0
 *.orig
+<<<<<<< HEAD
 */si/
 */*/si/
+=======
+si/
+>>>>>>> b17d950df315bfdaeae154e95f48a4bd38261263
