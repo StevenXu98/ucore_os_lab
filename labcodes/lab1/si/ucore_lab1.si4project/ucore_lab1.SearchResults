@@ -1,3 +1,4 @@
----- GD_KTEXT Matches (2 in 1 files) ----
-memlayout.h (C:\Users\Think\Desktop\ucore_os_lab\labcodes\lab1\kern\mm) line 14 : #define GD_KTEXT    ((SEG_KTEXT) << 3)        // kernel text
-memlayout.h (C:\Users\Think\Desktop\ucore_os_lab\labcodes\lab1\kern\mm) line 23 : #define KERNEL_CS    ((GD_KTEXT) | DPL_KERNEL)
+---- gd_ss Matches (3 in 1 files) ----
+gatedesc in mmu.h (C:\Users\Think\Desktop\ucore_os_lab\labcodes\lab1\kern\mm) :     unsigned gd_ss : 16;            // segment selector
+SETGATE in mmu.h (C:\Users\Think\Desktop\ucore_os_lab\labcodes\lab1\kern\mm) :     (gate).gd_ss = (sel);                                \
+SETCALLGATE in mmu.h (C:\Users\Think\Desktop\ucore_os_lab\labcodes\lab1\kern\mm) :     (gate).gd_ss = (ss);                                \
