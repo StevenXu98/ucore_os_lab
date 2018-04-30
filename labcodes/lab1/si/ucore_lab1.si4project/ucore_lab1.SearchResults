@@ -1,4 +1,0 @@
----- gd_ss Matches (3 in 1 files) ----
-gatedesc in mmu.h (C:\Users\Think\Desktop\ucore_os_lab\labcodes\lab1\kern\mm) :     unsigned gd_ss : 16;            // segment selector
-SETGATE in mmu.h (C:\Users\Think\Desktop\ucore_os_lab\labcodes\lab1\kern\mm) :     (gate).gd_ss = (sel);                                \
-SETCALLGATE in mmu.h (C:\Users\Think\Desktop\ucore_os_lab\labcodes\lab1\kern\mm) :     (gate).gd_ss = (ss);                                \
